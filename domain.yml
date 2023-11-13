@@ -1,0 +1,70 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_weather
+  - ask_location
+  - ask_weather_location
+  - gibberish
+  - action_unwanted
+  - out_of_context
+
+
+slots:
+  location:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: attribute
+
+entities:
+ - location
+
+actions: 
+ - action_weather
+  
+
+responses:
+  utter_greet:
+  - text: "Welcome, I am Weather Bot"
+  - text: "How can i help you today?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "What do you call a sick lemon? 
+            Answer: Lemon-aid"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great to hear, carry on!"
+
+  utter_goodbye:
+  - text: "Bye, hope we can catch again later!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Karthik."
+
+  utter_negative:
+  - text: "Sorry to hear you, this feed back is noted for improvement"
+
+  utter_positive:
+  - text: "Thanks for your feedback"
+
+  utter_gibberish:
+  - text: "Sorry, I could not understand what you are trying to say"
+
+  action_unwanted:
+  - text: "Apologies, This action is beyond my scope of work, Please try again with something else."
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
